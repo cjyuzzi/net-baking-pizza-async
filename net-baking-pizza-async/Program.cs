@@ -8,7 +8,7 @@ namespace net_baking_pizza_async
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             var watch = Stopwatch.StartNew();
             Console.WriteLine("開始進行製作披薩...");
@@ -23,15 +23,18 @@ namespace net_baking_pizza_async
             tasks製作披薩餅皮前.Add(Task.Run(準備醬料));
             tasks製作披薩餅皮前.Add(Task.Run(準備配料));
 
-            tasks烤製披薩前.Add(Task.WhenAll(tasks製作披薩餅皮前)
-                .ContinueWith(t => 製作披薩餅皮與塗抹醬料和放置配料()));
+            await Task.WhenAll(tasks製作披薩餅皮前);
 
-            tasks開始食用前.Add(Task.WhenAll(tasks烤製披薩前)
-                .ContinueWith(t=>烤製披薩()));
+            tasks烤製披薩前.Add(Task.Run(製作披薩餅皮與塗抹醬料和放置配料));
+
+            await Task.WhenAll(tasks烤製披薩前);
+
+            tasks開始食用前.Add(Task.Run(烤製披薩));
             tasks開始食用前.Add(Task.Run(準備餐具與飲料));
 
-            Task.WhenAll(tasks開始食用前)
-                .ContinueWith(t=> 披薩完成_開始食用()).Wait();
+            await Task.WhenAll(tasks開始食用前);
+
+            披薩完成_開始食用();
 
             watch.Stop();
             Console.WriteLine($"同步設計披薩製作共花費:{watch.ElapsedMilliseconds} 毫秒");
