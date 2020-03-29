@@ -1,6 +1,0 @@
-D:\projects\net-baking-pizza-async\net-baking-pizza-async\obj\Debug\net-baking-pizza-async.csprojAssemblyReference.cache
-D:\projects\net-baking-pizza-async\net-baking-pizza-async\bin\Debug\net-baking-pizza-async.exe.config
-D:\projects\net-baking-pizza-async\net-baking-pizza-async\bin\Debug\net-baking-pizza-async.exe
-D:\projects\net-baking-pizza-async\net-baking-pizza-async\bin\Debug\net-baking-pizza-async.pdb
-D:\projects\net-baking-pizza-async\net-baking-pizza-async\obj\Debug\net-baking-pizza-async.exe
-D:\projects\net-baking-pizza-async\net-baking-pizza-async\obj\Debug\net-baking-pizza-async.pdb
